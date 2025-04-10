@@ -1,0 +1,15 @@
+.hero__section {
+  background-image: url('./assets/images/freedom-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero__section-overlay {
+  backdrop-filter: blur(8px);
+}
+
+.hero__sphere {
+  border: 2px solid oklch(70.7% 0.165 254.624);
+  box-shadow: 0px 0px 100px oklch(70.7% 0.165 254.624);
+}
