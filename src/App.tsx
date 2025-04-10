@@ -1,11 +1,8 @@
-import { useState } from 'react';
-import ResourcesOverview from './pages/resource';
-import './App.css';
+import "./App.css";
+import ResourcesOverview from "./pages/resource";
 
 function App() {
-  return (
-    <ResourcesOverview />
-  )
+  return <ResourcesOverview />;
 }
 
-export default App
+export default App;
