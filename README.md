@@ -4,10 +4,11 @@ A minimal Landing page developed by Muhammad Kalimullah with React, Typescript a
 
 ## How to setup?
 
-clone this repo and run the following commands in terminal
+clone this repo or download the zip and run the following commands in terminal
 
 ```bash
-cd <porject-directory>
+git clone https://github.com/MuhammadKalimullahkhan/fast-brandly.git
+cd fast-brandly
 npm i # install node modules
 npm run dev # run development server
 ```
