@@ -63,23 +63,26 @@ export const ResourceCard: React.FC<CardProps> = ({
       initial="hidden"
       whileInView="visible"
       whileHover="hover"
-      viewport={{ once: false, margin: "-50px" }}
+      viewport={{ once: true, margin: "-50px" }}
       variants={cardVariants}
-      className="bg-white p-4 sm:p-6 rounded-xl shadow-md transition-shadow duration-300 flex flex-col sm:flex-row items-center sm:items-start"
+      className="p-4 lg:p-6 rounded-xl duration-300 grid grid-rows-[auto_auto] gap-4 border border-gray-100"
     >
+      <div className="grid grid-cols-[auto_1fr] gap-4 items-center">
+        <motion.div
+          variants={iconVariants}
+          className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
+        >
+          {icon}
+        </motion.div>
+        <h3 className="font-semibold text-lg">{title}</h3>
+      </div>
+
       <motion.div
-        variants={iconVariants}
-        className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mb-4 sm:mb-0"
-      >
-        {icon}
-      </motion.div>
-      <motion.div
-        className="sm:ml-4 text-center sm:text-left"
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
+        className="col-span-full"
       >
-        <h3 className="font-semibold text-lg mb-2 sm:mb-4">{title}</h3>
         <p className="text-gray-700">{description}</p>
       </motion.div>
     </motion.div>

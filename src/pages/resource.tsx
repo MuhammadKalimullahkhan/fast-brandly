@@ -1333,25 +1333,25 @@ export default function ResourcesOverview() {
           viewport={{ once: true }}
           className="bg-gray-50 py-12 sm:py-16 px-4"
         >
-          <div className="mx-auto">
-            <SectionHeading className="mb-8 sm:mb-12">
-              What You'll Find in Our Resources Section
-            </SectionHeading>
+          <SectionHeading className="mb-8 sm:mb-12">
+            What You'll Find in Our Resources Section
+          </SectionHeading>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85 }}
-              viewport={{ once: true }}
-              className="text-base sm:text-lg mb-12 sm:mb-16"
-            >
-              <p className="max-w-3xl mx-auto">
-                Our Resources Overview page includes several key areas to
-                explore, each tailored to provide you with unique insights and
-                support for your campaigns.
-              </p>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85 }}
+            viewport={{ once: true }}
+            className="text-base sm:text-lg mb-12 sm:mb-16"
+          >
+            <p className="max-w-3xl mx-auto">
+              Our Resources Overview page includes several key areas to explore,
+              each tailored to provide you with unique insights and support for
+              your campaigns.
+            </p>
+          </motion.div>
 
+          <div>
             <BlogSection />
             <CaseStudiesSection />
             <AIMarketingSection />

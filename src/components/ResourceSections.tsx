@@ -11,6 +11,7 @@ interface ImageContentGridProps {
   imageAlt: string;
   title: string;
   description: string;
+  cards: React.ReactNode;
   imageOrder?: "first" | "last";
 }
 
@@ -19,42 +20,26 @@ const ImageContentGrid: React.FC<ImageContentGridProps> = ({
   imageAlt,
   title,
   description,
-  imageOrder = "first",
+  cards,
 }) => (
-  <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
-    {imageOrder === "first" ? (
-      <>
-        <motion.img
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-          src={imageSrc}
-          alt={imageAlt}
-          className="w-full h-auto rounded-lg"
-        />
-        <div className="mt-6 md:mt-0">
-          <SectionHeading size="sm" align="left">
-            {title}
-          </SectionHeading>
-          <SubHeading>{description}</SubHeading>
-        </div>
-      </>
-    ) : (
-      <>
-        <div className="order-2 md:order-1 mt-6 md:mt-0">
-          <SectionHeading size="sm" align="left">
-            {title}
-          </SectionHeading>
-          <SubHeading>{description}</SubHeading>
-        </div>
-        <motion.img
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-          src={imageSrc}
-          alt={imageAlt}
-          className="order-1 md:order-2 w-full h-auto rounded-lg"
-        />
-      </>
-    )}
+  <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+    <div className="mt-6 lg:mt-0 order-2">
+      <SectionHeading size="sm" align="left">
+        {title}
+      </SectionHeading>
+      <SubHeading>{description}</SubHeading>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+        {cards}
+      </div>
+    </div>
+    <motion.img
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+      src={imageSrc}
+      alt={imageAlt}
+      className="w-full h-full object-cover rounded-lg lg:order-2"
+    />
   </div>
 );
 
@@ -63,7 +48,6 @@ interface ResourceSectionProps {
   description: string;
   imageSrc: string;
   imageAlt: string;
-  imageOrder?: "first" | "last";
   cards: React.ReactNode;
   className?: string;
 }
@@ -73,7 +57,6 @@ const ResourceSection: React.FC<ResourceSectionProps> = ({
   description,
   imageSrc,
   imageAlt,
-  imageOrder = "first",
   cards,
   className = "",
 }) => (
@@ -89,11 +72,8 @@ const ResourceSection: React.FC<ResourceSectionProps> = ({
       imageAlt={imageAlt}
       title={title}
       description={description}
-      imageOrder={imageOrder}
+      cards={cards}
     />
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-      {cards}
-    </div>
   </motion.div>
 );
 
@@ -133,7 +113,6 @@ export const CaseStudiesSection = () => (
     description="Our case studies offer real-world examples of how businesses have achieved success using Sample.com. These detailed reports showcase the strategies, tools, and approaches that led to positive outcomes for a variety of brands and industries."
     imageSrc={CaseStudyImage}
     imageAlt="Case Studies"
-    imageOrder="last"
     className="mb-16 sm:mb-20"
     cards={
       <>
