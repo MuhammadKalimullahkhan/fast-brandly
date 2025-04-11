@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 interface SectionHeadingProps {
   children: React.ReactNode;
@@ -35,11 +36,14 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   };
 
   return (
-    <h2
+    <motion.h2
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5, duration: 0.85 }}
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${alignStyles[align]} ${className}`}
     >
       {children}
-    </h2>
+    </motion.h2>
   );
 };
 

@@ -1,5 +1,4 @@
 .hero__section {
-  background-image: url('./assets/images/freedom-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -12,4 +11,188 @@
 .hero__sphere {
   border: 2px solid oklch(70.7% 0.165 254.624);
   box-shadow: 0px 0px 100px oklch(70.7% 0.165 254.624);
+}
+
+.hero__section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 0;
+  /* Ensure section is above the pseudo-element */
+  padding: 2rem;
+  background: #0f172a;
+}
+
+.hero__section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/images/freedom-bg.jpg');
+  /* Check if path is correct */
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px) brightness(0.6);
+  transform: scale(1.1);
+  z-index: -1;
+  /* Make sure it's behind content */
+  pointer-events: none;
+}
+
+.hero__wrapper {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__content {
+  flex: 1;
+}
+
+.hero__content h1 {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: rgb(255, 115, 0);
+  line-height: 1.2;
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.hero__content p {
+  font-size: 1.25rem;
+  color: #d9e1ec;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero__animation {
+  flex: 1;
+  position: relative;
+  height: 500px;
+  perspective: 1000px;
+}
+
+.seo-visualization {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.keyword-bubble {
+  position: absolute;
+  background: rgba(99, 102, 241, 0.1);
+  border: 2px solid #6366f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: float 4s infinite ease-in-out;
+}
+
+.ranking-bar {
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(to top, #6366f1, transparent);
+  bottom: 0;
+  border-radius: 4px;
+  transform-style: preserve-3d;
+}
+
+.search-pulse {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #6366f1;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.data-point {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #6366f1;
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+.connection-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #6366f1, transparent);
+  height: 1px;
+  transform-origin: left center;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__wrapper {
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    gap: 2rem;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  .hero__content h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero__content p {
+    color: #ffffff;
+  }
+
+  .hero__animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: -1;
+  }
+
 }
