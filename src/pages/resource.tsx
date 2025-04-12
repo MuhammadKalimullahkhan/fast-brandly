@@ -14,6 +14,7 @@ import ScrollToSection from "../utils";
 
 // images
 import ResourceImage from "../assets/images/influencer-marketing.jpg";
+import LearningImage from "../assets/images/learning.jpg";
 
 export default function ResourcesOverview() {
   const [isExpanded, setIsExpanded] = React.useState(true);
@@ -1273,7 +1274,7 @@ export default function ResourcesOverview() {
           </div>
         </div>
       </section>
-      <div className="container mx-auto">
+      <motion.div className="container mx-auto">
         {/* Why Explore Resources */}
         <motion.section
           initial={{ opacity: 0 }}
@@ -1370,22 +1371,29 @@ export default function ResourcesOverview() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.85 }}
           viewport={{ once: true }}
-          className="py-12 sm:py-16 px-4 mx-auto"
+          className="py-12 sm:py-16 px-4 grid grid-cols-1 md:grid-cols-2 gap-4"
         >
-          <SectionHeading size="md">
-            Why Invest Time in Learning and Improving?
-          </SectionHeading>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85 }}
-            viewport={{ once: true }}
-            className="text-base sm:text-lg"
-          >
-            Social media advertising is a highly competitive space. By exploring
-            Sample.com's resources, you're equipping yourself with the knowledge
-            and tools needed to adapt, innovate, and succeed.
-          </motion.p>
+          <img
+            src={LearningImage}
+            alt="Resource"
+            className="w-full h-86 object-cover rounded-lg"
+          />
+          <div className="my-auto">
+            <SectionHeading size="md" align="left">
+              Why Invest Time in Learning and Improving?
+            </SectionHeading>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85 }}
+              viewport={{ once: true }}
+              className="text-base sm:text-lg"
+            >
+              Social media advertising is a highly competitive space. By
+              exploring Sample.com's resources, you're equipping yourself with
+              the knowledge and tools needed to adapt, innovate, and succeed.
+            </motion.p>
+          </div>
         </motion.section>
 
         {/* FAQ */}
@@ -1427,7 +1435,7 @@ export default function ResourcesOverview() {
             </Button>
           </motion.div>
         </motion.section>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
